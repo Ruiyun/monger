@@ -317,12 +317,12 @@
       (monger.collection/count collection)
 
       (monger.collection/count collection {:first_name \"Paul\"})"
-  (^long [^String collection]
-         (.count (.getCollection monger.core/*mongodb-database* (name collection))))
-  (^long [^String collection ^Map conditions]
-         (.count (.getCollection monger.core/*mongodb-database* (name collection)) (to-db-object conditions)))
-  (^long [^DB db ^String collection ^Map conditions]
-         (.count (.getCollection db (name collection)) (to-db-object conditions))))
+  ([^String collection]
+     (.count (.getCollection monger.core/*mongodb-database* (name collection))))
+  ([^String collection ^Map conditions]
+     (.count (.getCollection monger.core/*mongodb-database* (name collection)) (to-db-object conditions)))
+  ([^DB db ^String collection ^Map conditions]
+     (.count (.getCollection db (name collection)) (to-db-object conditions))))
 
 (defn any?
   "Whether the collection has any items at all, or items matching query.
